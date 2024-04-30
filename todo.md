@@ -1,0 +1,3 @@
+- [ ] Recursively display git repos
+- [ ] Pressing enter on a list item opens the folder
+- [ ] Allow opening with code (vscode) or idea (intelliji)

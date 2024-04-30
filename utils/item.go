@@ -1,4 +1,4 @@
-package main
+package utils
 
 import (
 	"fmt"
@@ -8,25 +8,12 @@ import (
 	"github.com/charmbracelet/bubbles/list"
 )
 
-type item struct {
+type Item struct {
 	title       string
 	description string
 }
 
-func (i item) FilterValue() string { return i.title }
-
-func isGitRepo(folders []fs.DirEntry) bool {
-	for _, folder := range folders {
-		if folder.Name() == ".git" {
-			return true
-		}
-	}
-
-	return false
-}
-
-// // TODO: handle recursive directories when git not found
-func createItems(dir string) []list.Item {
+func CreateItems(dir string) []list.Item {
 	list := []list.Item{}
 
 	folders, err := os.ReadDir(dir)
@@ -43,10 +30,22 @@ func createItems(dir string) []list.Item {
 			var isGitRepo = isGitRepo(folders)
 
 			if isGitRepo {
-				list = append(list, item{title: folder.Name()})
+				list = append(list, Item{title: folder.Name(), description: "This is a git repository"})
 			}
 		}
 	}
 
 	return list
 }
+
+func isGitRepo(folders []fs.DirEntry) bool {
+	for _, folder := range folders {
+		if folder.Name() == ".git" {
+			return true
+		}
+	}
+
+	return false
+}
+
+func (i Item) FilterValue() string { return i.title }
