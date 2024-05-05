@@ -8,7 +8,7 @@ import (
 
 func NewListDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 	d := list.NewDefaultDelegate()
-	d.ShowDescription = false
+	d.ShowDescription = true
 
 	d.UpdateFunc = func(msg tea.Msg, m *list.Model) tea.Cmd {
 		var title string

@@ -17,9 +17,33 @@ func (i Item) Title() string       { return i.title }
 func (i Item) Description() string { return i.description }
 func (i Item) FilterValue() string { return i.title }
 
-func CreateItems(dir string) []list.Item {
-	list := []list.Item{}
+var gitFolder = ".git"
+var foldersToIgnore = []string{"node_modules"}
 
+func CreateItems(dir string) []list.Item {
+	repoList := repoList[list.Item]{Items: []list.Item{}, createItem: func(filepath string) list.Item {
+		return Item{title: filepath}
+	}}
+
+	repoList.findRepos(dir)
+
+	return repoList.Items
+}
+
+type repoList[T any] struct {
+	Items      []T
+	createItem func(filepath string) T
+}
+
+func (lst *repoList[T]) add(item T) {
+	lst.Items = append(lst.Items, item)
+}
+
+func (lst *repoList[T]) getFullPath(dir string, folder fs.DirEntry) string {
+	return dir + "/" + folder.Name()
+}
+
+func (lst *repoList[T]) findRepos(dir string) {
 	folders, err := os.ReadDir(dir)
 
 	if err != nil {
@@ -28,26 +52,19 @@ func CreateItems(dir string) []list.Item {
 	}
 
 	for _, folder := range folders {
-		if folder.IsDir() {
-			folders, _ = os.ReadDir(dir + "/" + folder.Name())
+		isGitRepo := getIsGitRepo(folder.Name())
 
-			var isGitRepo = isGitRepo(folders)
-
-			if isGitRepo {
-				list = append(list, Item{title: folder.Name()})
-			}
+		if isGitRepo {
+			lst.add(lst.createItem(dir + "/" + folder.Name()))
+			return
 		}
 	}
 
-	return list
+	for _, folder := range folders {
+		lst.findRepos(lst.getFullPath(dir, folder))
+	}
 }
 
-func isGitRepo(folders []fs.DirEntry) bool {
-	for _, folder := range folders {
-		if folder.Name() == ".git" {
-			return true
-		}
-	}
-
-	return false
+func getIsGitRepo(folderName string) bool {
+	return folderName == gitFolder
 }
