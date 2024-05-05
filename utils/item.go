@@ -13,6 +13,10 @@ type Item struct {
 	description string
 }
 
+func (i Item) Title() string       { return i.title }
+func (i Item) Description() string { return i.description }
+func (i Item) FilterValue() string { return i.title }
+
 func CreateItems(dir string) []list.Item {
 	list := []list.Item{}
 
@@ -30,7 +34,7 @@ func CreateItems(dir string) []list.Item {
 			var isGitRepo = isGitRepo(folders)
 
 			if isGitRepo {
-				list = append(list, Item{title: folder.Name(), description: "This is a git repository"})
+				list = append(list, Item{title: folder.Name()})
 			}
 		}
 	}
@@ -47,5 +51,3 @@ func isGitRepo(folders []fs.DirEntry) bool {
 
 	return false
 }
-
-func (i Item) FilterValue() string { return i.title }

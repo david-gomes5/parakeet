@@ -6,8 +6,9 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 )
 
-func NewItemDelegate(keys *delegateKeyMap) list.DefaultDelegate {
+func NewListDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 	d := list.NewDefaultDelegate()
+	d.ShowDescription = false
 
 	d.UpdateFunc = func(msg tea.Msg, m *list.Model) tea.Cmd {
 		var title string
