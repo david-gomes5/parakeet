@@ -1,4 +1,4 @@
-# Repo Selector
+# Parakeet
 
 This is a golang cli to quickly be able to, list, filter and open repos, on your favourite IDE with ease.
 

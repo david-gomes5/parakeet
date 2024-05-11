@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	"repo-selector/utils"
+	"parakeet/utils"
 
 	tea "github.com/charmbracelet/bubbletea"
 )
