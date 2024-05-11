@@ -1,8 +1,12 @@
+## Script
+- [ ] Dedupe adding alias to script (make script idempotent)
+## CLI
+- [ ] Allow opening with code (vscode) or idea (intelliji)
+
+## Done
 - [x] Recursively display git repos
 - [x] Ignore folders from the list of ignores
 - [x] Measure how long `findRepos` runs
 - [x] Pressing enter on a list item opens the folder
 - [x] Write script to add cli as an alias to shell
 - [x] Add readme to document how to install cli
-- [ ] dedupe adding alias to script (make script idempotent)
-- [ ] Allow opening with code (vscode) or idea (intelliji)
