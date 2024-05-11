@@ -1,28 +1,33 @@
 package utils
 
 import (
-	"fmt"
 	"io/fs"
 	"os"
+	"strings"
 
 	"github.com/charmbracelet/bubbles/list"
 )
 
 type Item struct {
 	title       string
+	dir         string
 	description string
 }
 
 func (i Item) Title() string       { return i.title }
 func (i Item) Description() string { return i.description }
 func (i Item) FilterValue() string { return i.title }
+func (i Item) Dir() string         { return i.dir }
 
 var gitFolder = ".git"
 var foldersToIgnore = []string{"node_modules"}
 
 func CreateItems(dir string) []list.Item {
 	repoList := repoList[list.Item]{Items: []list.Item{}, createItem: func(filepath string) list.Item {
-		return Item{title: filepath}
+		split := strings.Split(filepath, "/")
+		folderName := split[len(split)-1]
+
+		return Item{title: folderName, dir: filepath}
 	}}
 
 	repoList.findRepos(dir)
@@ -47,20 +52,17 @@ func (lst *repoList[T]) findRepos(dir string) {
 	folders, err := os.ReadDir(dir)
 
 	if err != nil {
-		fmt.Println("Error reading directory:", err)
-		os.Exit(1)
+		return
 	}
 
 	for _, folder := range folders {
 		isGitRepo := getIsGitRepo(folder.Name())
 
 		if isGitRepo {
-			lst.add(lst.createItem(dir + "/" + folder.Name()))
+			lst.add(lst.createItem(dir))
 			return
 		}
-	}
 
-	for _, folder := range folders {
 		lst.findRepos(lst.getFullPath(dir, folder))
 	}
 }
