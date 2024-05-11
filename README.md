@@ -9,6 +9,11 @@ Using BubbleTea as the cli framework.
 
 ## How to install?
 Run the `add-cli-as-alias.sh` shell script
-```sh
+```bash
 $ sh ./add-cli-as-alias.sh
+```
+## How to update the cli?
+Build the cli with the following command:
+```bash
+$ make build
 ```

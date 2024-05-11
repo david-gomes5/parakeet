@@ -13,7 +13,7 @@ PWD=$(pwd)
 
 # Build the project
 echo "Building $PROJECT_NAME..."
-go build -o ./$OUTPUT $ENTRY_POINT
+make build
 
 echo "Build complete: ./$OUTPUT"
 

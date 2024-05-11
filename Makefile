@@ -1,4 +1,4 @@
-BINARY_NAME=selector
+BINARY_NAME=parakeet
  
 build:
 	go mod tidy
