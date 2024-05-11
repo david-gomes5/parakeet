@@ -4,6 +4,7 @@
 - [ ] feat: Add ability to save config
   - [ ] spike: Figure out where the config can be saved - dot file?
   - [ ] spike: yml file? json? what else? 
+  - [ ] Allow editing config when passing arg to cli e.g. `--edit-config -e`
 - [ ] feat: Allow opening with code (vscode) or idea (intelliji) Blocked by config feat
 - [ ] feat: Allow setting array of folders to search for repos
 - [ ] feat: Close cli when opening IDE
