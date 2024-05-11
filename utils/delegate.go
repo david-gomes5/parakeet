@@ -1,6 +1,9 @@
 package utils
 
 import (
+	"log"
+	"os/exec"
+
 	"github.com/charmbracelet/bubbles/key"
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
@@ -11,10 +14,14 @@ func NewListDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 	d.ShowDescription = false
 
 	d.UpdateFunc = func(msg tea.Msg, m *list.Model) tea.Cmd {
-		var title string
+		var (
+			title string
+			dir   string
+		)
 
 		if i, ok := m.SelectedItem().(Item); ok {
 			title = i.title
+			dir = i.dir
 		} else {
 			return nil
 		}
@@ -23,7 +30,13 @@ func NewListDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 		case tea.KeyMsg:
 			switch {
 			case key.Matches(msg, keys.choose):
-				return m.NewStatusMessage(StatusMessageStyle("You chose " + title))
+				cmd := exec.Command("code", dir)
+
+				if err := cmd.Run(); err != nil {
+					log.Fatal(err)
+				}
+
+				return m.NewStatusMessage(StatusMessageStyle("Opening " + title + "..."))
 
 			case key.Matches(msg, keys.remove):
 				index := m.Index()

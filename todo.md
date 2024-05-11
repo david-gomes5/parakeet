@@ -1,5 +1,5 @@
 - [x] Recursively display git repos
 - [x] Ignore folders from the list of ignores
 - [x] Measure how long `findRepos` runs
-- [ ] Pressing enter on a list item opens the folder
+- [x] Pressing enter on a list item opens the folder
 - [ ] Allow opening with code (vscode) or idea (intelliji)
