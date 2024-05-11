@@ -1,12 +1,14 @@
 ## Script
-- [ ] Dedupe adding alias to script (make script idempotent)
+- [ ] chore: Dedupe adding alias to script (make script idempotent)
 ## CLI
-- [ ] Allow opening with code (vscode) or idea (intelliji)
+- [ ] feat: Add ability to save config
+  - [ ] spike: Figure out where the config can be saved - dot file?
+- [ ] feat: Allow opening with code (vscode) or idea (intelliji) Blocked by config feat
 
 ## Done
-- [x] Recursively display git repos
-- [x] Ignore folders from the list of ignores
-- [x] Measure how long `findRepos` runs
-- [x] Pressing enter on a list item opens the folder
-- [x] Write script to add cli as an alias to shell
-- [x] Add readme to document how to install cli
+- [x] feat: Recursively display git repos
+- [x] feat: Ignore folders from the list of ignores
+- [x] chore: Measure how long `findRepos` runs
+- [x] feat: Pressing enter on a list item opens the folder
+- [x] feat: Write script to add cli as an alias to shell
+- [x] feat: Add readme to document how to install cli
