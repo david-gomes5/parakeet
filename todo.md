@@ -3,6 +3,6 @@
 - [x] Measure how long `findRepos` runs
 - [x] Pressing enter on a list item opens the folder
 - [x] Write script to add cli as an alias to shell
-- [ ] Add readme to document how to install cli
+- [x] Add readme to document how to install cli
 - [ ] dedupe adding alias to script (make script idempotent)
 - [ ] Allow opening with code (vscode) or idea (intelliji)
