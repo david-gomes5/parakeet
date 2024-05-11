@@ -2,13 +2,12 @@ package utils
 
 import (
 	"github.com/charmbracelet/bubbles/key"
-	"github.com/charmbracelet/bubbles/list"
 	bubbleList "github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
 )
 
 type Model struct {
-	List list.Model
+	List bubbleList.Model
 }
 
 func (m Model) Init() tea.Cmd {
