@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"github.com/charmbracelet/bubbles/key"
 	bubbleList "github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
 )
@@ -11,6 +10,7 @@ type Model struct {
 }
 
 func (m Model) Init() tea.Cmd {
+	// TODO: implement reading from a config file?
 	return nil
 }
 
