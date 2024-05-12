@@ -13,7 +13,7 @@ PWD=$(pwd)
 
 # Build the project
 echo "Building $PROJECT_NAME..."
-make build
+make build-cli
 
 echo "Build complete: ./$OUTPUT"
 
