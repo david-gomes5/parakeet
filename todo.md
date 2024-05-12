@@ -1,11 +1,13 @@
 ## Script
 - [ ] chore: Dedupe adding alias to script (make script idempotent)
+
 ## CLI
-- [ ] feat: Remove unavailable IDEs, on startup
 - [ ] feat: Close cli when opening IDE?
 - [ ] feat: Indent items to show subfolders - allow for opening/closing of folders?
+- [ ] feat: Allow adding additional editors through flags
 
 ## Done
+- [x] feat: Remove unavailable IDEs on startup
 - [x] allow config through flags - add folder path flags
 - [x] chore: ignore dot files when looking for repos
 - [x] feat: allow default ide, and also selection of ide, switch button?
@@ -15,6 +17,11 @@
 - [x] feat: Pressing enter on a list item opens the folder
 - [x] feat: Write script to add cli as an alias to shell
 - [x] feat: Add readme to document how to install cli
+
+## Testing
+- [ ] Test the folder flags
+- [ ] Test repos being found and listed
+- [ ] Test being able to open a an item with the current editor cmd
 
 ## Cancelled
 - [-] feat: Allow setting array of folders to search for repos <!-- superseded -->
