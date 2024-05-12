@@ -21,7 +21,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, tea.Quit
 		}
 	case tea.WindowSizeMsg:
-		h, v := DocStyle.GetFrameSize()
+		h, v := ViewStyle.GetFrameSize()
 		m.List.SetSize(msg.Width-h, msg.Height-v)
 	}
 
@@ -31,7 +31,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 }
 
 func (m Model) View() string {
-	return DocStyle.Render(m.List.View())
+	return ViewStyle.Render(m.List.View())
 }
 
 func NewModel() Model {
