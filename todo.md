@@ -3,8 +3,10 @@
 
 ## CLI
 - [ ] feat: Close cli when opening IDE?
-- [ ] feat: Indent items to show subfolders - allow for opening/closing of folders?
 - [ ] feat: Allow adding additional editors through flags
+- [ ] feat: Pull in and rework list from Bubbles
+  - [ ] feat: Redesign title area to include helpful information
+  - [ ] feat: Indent items to show subfolders - allow for opening/closing of folders? left chevron - should space open folders?
 
 ## Done
 - [x] fix: UI blinking - looks to be because our title is 2 lines instead of 1 + improve performance around title
