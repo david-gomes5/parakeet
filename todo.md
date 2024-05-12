@@ -2,7 +2,6 @@
 - [ ] chore: Dedupe adding alias to script (make script idempotent)
 ## CLI
 - [ ] feat: Remove unavailable IDEs, on startup
-- [ ] feat: Allow opening with code (vscode) or idea (intelliji) Blocked by config feat
 - [ ] feat: Allow setting array of folders to search for repos
 - [ ] feat: Close cli when opening IDE?
 - [ ] feat: Indent items to show subfolders - allow for opening/closing of folders?
@@ -19,6 +18,7 @@
 - [x] feat: Add readme to document how to install cli
 
 ## Cancelled
+- [-] feat: Allow opening with code (vscode) or idea (intelliji) Blocked by config feat
 - [-] feat: Add ability to save config <!-- Using cli flags instead ->
   - [-] spike: Figure out where the config can be saved - dot file?
   - [-] spike: yml file? json? what else? 
