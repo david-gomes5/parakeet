@@ -81,6 +81,11 @@ func (lst *repoList[T]) findRepos(dir string) {
 					return
 				}
 			}
+
+			// Ignore hidden folders
+			if strings.HasPrefix(folder.Name(), ".") {
+				return
+			}
 		}
 
 		lst.findRepos(lst.getFullPath(dir, folder))

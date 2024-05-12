@@ -12,6 +12,7 @@
 - [ ] feat: indent items to show subfolders - allow for opening/closing of folders?
 
 ## Done
+- [x] chore: ignore dot files when looking for repos
 - [x] feat: allow default ide, and also selection of ide, switch button?
 - [x] feat: Recursively display git repos
 - [x] feat: Ignore folders from the list of ignores
