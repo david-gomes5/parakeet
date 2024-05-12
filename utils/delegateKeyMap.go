@@ -4,7 +4,7 @@ import "github.com/charmbracelet/bubbles/key"
 
 type delegateKeyMap struct {
 	choose key.Binding
-	remove key.Binding
+	toggle key.Binding
 }
 
 // Additional short help entries. This satisfies the help.KeyMap interface and
@@ -12,7 +12,7 @@ type delegateKeyMap struct {
 func (d delegateKeyMap) ShortHelp() []key.Binding {
 	return []key.Binding{
 		d.choose,
-		d.remove,
+		d.toggle,
 	}
 }
 
@@ -22,7 +22,7 @@ func (d delegateKeyMap) FullHelp() [][]key.Binding {
 	return [][]key.Binding{
 		{
 			d.choose,
-			d.remove,
+			d.toggle,
 		},
 	}
 }
@@ -33,9 +33,9 @@ func NewDelegateKeyMap() *delegateKeyMap {
 			key.WithKeys("enter"),
 			key.WithHelp("enter", "choose"),
 		),
-		remove: key.NewBinding(
-			key.WithKeys("x", "backspace"),
-			key.WithHelp("x", "delete"),
+		toggle: key.NewBinding(
+			key.WithKeys("x"),
+			key.WithHelp("x", "switch IDE"),
 		),
 	}
 }

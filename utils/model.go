@@ -3,6 +3,7 @@ package utils
 import (
 	bubbleList "github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
+	"github.com/charmbracelet/lipgloss"
 )
 
 type Model struct {
@@ -11,6 +12,7 @@ type Model struct {
 
 func (m Model) Init() tea.Cmd {
 	// TODO: implement reading from a config file?
+	// TODO: Check if IDE commands exist, if not, remove them from the list
 	return nil
 }
 
@@ -27,6 +29,13 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 	var cmd tea.Cmd
 	m.List, cmd = m.List.Update(msg)
+
+	// Update the title
+	m.List.Title = lipgloss.JoinVertical(lipgloss.Left, "Repositories",
+		currentEditor.getCurrentEditor().name,
+	)
+	m.List.Styles.Title = TitleStyle
+
 	return m, cmd
 }
 
@@ -43,7 +52,6 @@ func NewModel() Model {
 	// Setup list
 	delegate := NewListDelegate(delegateKeys)
 	list := bubbleList.New(items, delegate, 0, 0)
-	list.Title = "Repositories"
 
 	return Model{List: list}
 }

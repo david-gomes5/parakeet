@@ -5,8 +5,8 @@ import (
 )
 
 var (
-	ItemStyle          = lipgloss.NewStyle().PaddingLeft(2)
-	ViewStyle          = lipgloss.NewStyle().Margin(5)
+	ViewStyle          = lipgloss.NewStyle().Margin(2)
+	TitleStyle         = lipgloss.NewStyle().Margin(0).Padding(0, 1).Foreground(lipgloss.Color("#FF00FF")).Border(lipgloss.RoundedBorder())
 	StatusMessageStyle = lipgloss.NewStyle().
 				Foreground(lipgloss.AdaptiveColor{Light: "#04B575", Dark: "#04B575"}).
 				Bold(true).

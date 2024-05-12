@@ -7,12 +7,12 @@
   - [ ] spike: yml file? json? what else? 
   - [ ] Allow editing config when passing arg to cli e.g. `--edit-config -e`
 - [ ] feat: Allow opening with code (vscode) or idea (intelliji) Blocked by config feat
-- [ ] feat: allow default ide, and also selection of ide, toggle button?
 - [ ] feat: Allow setting array of folders to search for repos
 - [ ] feat: Close cli when opening IDE
 - [ ] feat: indent items to show subfolders - allow for opening/closing of folders?
 
 ## Done
+- [x] feat: allow default ide, and also selection of ide, switch button?
 - [x] feat: Recursively display git repos
 - [x] feat: Ignore folders from the list of ignores
 - [x] chore: Measure how long `findRepos` runs

@@ -30,7 +30,8 @@ func NewListDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 		case tea.KeyMsg:
 			switch {
 			case key.Matches(msg, keys.choose):
-				cmd := exec.Command("code", dir)
+				editorCmd := currentEditor.getCurrentEditor().cmd
+				cmd := exec.Command(editorCmd, dir)
 
 				if err := cmd.Run(); err != nil {
 					log.Fatal(err)
@@ -38,21 +39,15 @@ func NewListDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 
 				return m.NewStatusMessage(StatusMessageStyle("Opening " + title + "..."))
 
-			case key.Matches(msg, keys.remove):
-				index := m.Index()
-				m.RemoveItem(index)
-				if len(m.Items()) == 0 {
-					keys.remove.SetEnabled(false)
-				}
-
-				return m.NewStatusMessage(StatusMessageStyle("Deleted " + title))
+			case key.Matches(msg, keys.toggle):
+				currentEditor.incrementCurrentEditorIndex()
 			}
 		}
 
 		return nil
 	}
 
-	help := []key.Binding{keys.choose, keys.remove}
+	help := []key.Binding{keys.choose, keys.toggle}
 
 	d.ShortHelpFunc = func() []key.Binding {
 		return help
