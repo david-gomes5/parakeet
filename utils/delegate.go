@@ -29,7 +29,7 @@ func NewListDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 		switch msg := msg.(type) {
 		case tea.KeyMsg:
 			switch {
-			case key.Matches(msg, keys.choose):
+			case key.Matches(msg, keys.open):
 				editorCmd := currentEditor.getCurrentEditor().cmd
 				cmd := exec.Command(editorCmd, dir)
 
@@ -47,7 +47,7 @@ func NewListDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 		return nil
 	}
 
-	help := []key.Binding{keys.choose, keys.toggle}
+	help := []key.Binding{keys.open, keys.toggle}
 
 	d.ShortHelpFunc = func() []key.Binding {
 		return help
