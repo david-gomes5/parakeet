@@ -1,6 +1,7 @@
 ## Script
 - [ ] chore: Dedupe adding alias to script (make script idempotent)
 ## CLI
+- [ ] feat: Remove unavailable IDEs, on startup
 - [ ] feat: Add ability to save config
   - [ ] spike: Figure out where the config can be saved - dot file?
   - [ ] spike: yml file? json? what else? 
