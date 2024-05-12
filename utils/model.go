@@ -43,10 +43,10 @@ func (m Model) View() string {
 	return ViewStyle.Render(m.List.View())
 }
 
-func NewModel() Model {
+func NewModel(folderPaths FolderPaths) Model {
 	var (
 		delegateKeys = NewDelegateKeyMap()
-		items        = CreateItems("/Users/davidgomes/repos")
+		items        = CreateItems(folderPaths.FolderPaths())
 	)
 
 	// Setup list

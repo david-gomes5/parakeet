@@ -28,7 +28,7 @@ var (
 	debugFindRepos        = false
 )
 
-func CreateItems(dir string) []list.Item {
+func CreateItems(dirs []string) []list.Item {
 	repoList := repoList[list.Item]{Items: []list.Item{}, createItem: func(filepath string) list.Item {
 		split := strings.Split(filepath, "/")
 		folderName := split[len(split)-1]
@@ -38,10 +38,20 @@ func CreateItems(dir string) []list.Item {
 
 	if debugFindRepos {
 		measureFuncTime(func() {
-			repoList.findRepos(dir)
+			for _, dir := range dirs {
+				repoList.findRepos(dir)
+			}
 		})
 	} else {
-		repoList.findRepos(dir)
+		for _, dir := range dirs {
+			repoList.findRepos(dir)
+		}
+	}
+
+	// TODO: add test to test that the program can't run without a folder path
+	if len(repoList.Items) <= 0 {
+		fmt.Println("No repositories found")
+		os.Exit(1)
 	}
 
 	return repoList.Items
