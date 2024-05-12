@@ -15,5 +15,5 @@ $ sh ./add-cli-as-alias.sh
 ## How to update the cli?
 Build the cli with the following command:
 ```bash
-$ make build
+$ make build-cli
 ```
