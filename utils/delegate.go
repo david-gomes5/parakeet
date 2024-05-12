@@ -41,6 +41,8 @@ func NewListDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 
 			case key.Matches(msg, keys.toggle):
 				currentEditor.incrementCurrentEditorIndex()
+				title := GetTitle()
+				m.Title = title
 			}
 		}
 

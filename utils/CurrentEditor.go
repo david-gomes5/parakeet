@@ -24,6 +24,10 @@ func NewCurrentEditor() CurrentEditor {
 			name: "IntelliJ IDEA",
 			cmd:  "idea",
 		},
+		{
+			name: "Vim",
+			cmd:  "vim",
+		},
 	}}
 
 	// Check if the editor cmd is available

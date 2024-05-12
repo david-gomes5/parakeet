@@ -3,7 +3,6 @@ package utils
 import (
 	bubbleList "github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/charmbracelet/lipgloss"
 )
 
 type Model struct {
@@ -30,12 +29,6 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	var cmd tea.Cmd
 	m.List, cmd = m.List.Update(msg)
 
-	// Update the title
-	m.List.Title = lipgloss.JoinVertical(lipgloss.Left, "Repositories",
-		currentEditor.getCurrentEditor().name,
-	)
-	m.List.Styles.Title = TitleStyle
-
 	return m, cmd
 }
 
@@ -52,6 +45,13 @@ func NewModel(folderPaths FolderPaths) Model {
 	// Setup list
 	delegate := NewListDelegate(delegateKeys)
 	list := bubbleList.New(items, delegate, 0, 0)
+
+	// Set styles
+	list.Styles.Title = TitleStyle
+
+	// Set title
+	title := GetTitle()
+	list.Title = title
 
 	return Model{List: list}
 }

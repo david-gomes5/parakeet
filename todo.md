@@ -7,6 +7,7 @@
 - [ ] feat: Allow adding additional editors through flags
 
 ## Done
+- [x] fix: UI blinking - looks to be because our title is 2 lines instead of 1 + improve performance around title
 - [x] feat: Remove unavailable IDEs on startup
 - [x] allow config through flags - add folder path flags
 - [x] chore: ignore dot files when looking for repos
