@@ -29,4 +29,4 @@ $ make build-cli
 
 | Flag | Type                 | Description                                                                                           |
 | ---- | -------------------- | ----------------------------------------------------------------------------------------------------- |
-| `-f` | `string`, `[]string` | Use to point to folder directories with git repositories e.g. `parakeet -f "/Users/davidgomes/repos"` |
+| `-f` | `string`, `[]string` | folder directorie(s) to generate the list of git repositories e.g. `parakeet -f "/Users/davidgomes/repos"` |
